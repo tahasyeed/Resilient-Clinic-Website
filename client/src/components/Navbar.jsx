@@ -229,15 +229,127 @@
 
 
 
+// import React, { useContext, useState } from 'react';
+// import { NavLink, useNavigate } from 'react-router-dom';
+// import {
+//   FaSignOutAlt, FaChevronDown, FaBars, FaTimes, FaPhoneAlt, FaMapMarkerAlt,
+//   FaInfoCircle, FaHandsHelping, FaEnvelope, FaCalendarAlt, FaHome
+// } from 'react-icons/fa';
+// import { GiMedicines } from 'react-icons/gi';
+// import { AppContext } from '../context/AppContext.jsx';
+// import { assets } from "../assets/assets.js";
+
+// const navLinks = [
+//   { path: "/", label: "Home", icon: FaHome },
+//   { path: "/about", label: "About", icon: FaInfoCircle },
+//   { path: "/services", label: "Services", icon: FaHandsHelping },
+//   { path: "/contact", label: "Contact", icon: FaEnvelope }
+// ];
+
+// const Navbar = () => {
+//   const navigate = useNavigate();
+//   const [showMenu, setShowMenu] = useState(false);
+//   const [showDropdown, setShowDropdown] = useState(false);
+//   const { token, setToken, userData } = useContext(AppContext);
+
+//   const logout = () => {
+//     localStorage.removeItem('token');
+//     setToken('');
+//     navigate('/');
+//   };
+
+//   const NavItems = ({ mobile = false }) => (
+//     <>
+//       {navLinks.map(({ path, label, icon: Icon }) => (
+//         <NavLink
+//           key={path}
+//           to={path}
+//           onClick={() => mobile && setShowMenu(false)}
+//           className={({ isActive }) =>
+//             `${mobile
+//               ? `py-2 px-4 rounded-lg flex items-center gap-3 ${isActive ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-blue-50'}`
+//               : `py-1 flex items-center gap-1.5 font-medium relative group transition ${isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`
+//             }`
+//           }
+//         >
+//           <Icon className="text-blue-500 text-lg" />
+//           {label}
+//           {!mobile && <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300" />}
+//         </NavLink>
+//       ))}
+//     </>
+//   );
+
+//   return (
+//     <header className="sticky top-0 z-50 bg-white shadow-sm">
+//       {/* Top Info */}
+//       <div className="hidden md:block bg-gradient-to-r from-blue-800 to-green-400 text-white text-sm py-2 px-4">
+//         <div className="container mx-auto flex justify-between items-center">
+//           <div className="flex space-x-6">
+//             <div className="flex items-center space-x-1"><FaPhoneAlt size={12} /><span>Emergency: (123) 456-7890</span></div>
+//             <div className="flex items-center space-x-1"><FaMapMarkerAlt size={12} /><span>123 Healing St, Medical City</span></div>
+//           </div>
+//           <div className="flex items-center space-x-1"><GiMedicines size={14} /><span>24/7 Pharmacy Services</span></div>
+//         </div>
+//       </div>
+
+//       {/* Main Nav */}
+//       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+//         {/* Logo */}
+//         <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
+//           <span className="text-2xl font-bold cursor-pointer text-blue-800">
+//             <a href="/">Resilient Neuropsychiatric And Orthopedic Clinic</a>
+//           </span>
+//         </div>
+
+//         {/* Desktop Navigation */}
+//         <nav className="hidden md:flex items-center space-x-8">
+//           <NavItems />
+//         </nav>
+
+//         {/* Hamburger (Mobile only) */}
+//         <div className="md:hidden flex items-center ml-auto">
+//           <button className="text-blue-900" onClick={() => setShowMenu(true)}>
+//             <FaBars size={24} />
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Backdrop */}
+//       {showMenu && <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" onClick={() => setShowMenu(false)} />}
+
+//       {/* Mobile Drawer */}
+//       <div className={`md:hidden fixed top-0 left-0 w-72 h-full z-50 bg-white transform transition-transform duration-300 shadow-2xl ${showMenu ? 'translate-x-0' : '-translate-x-full'}`}>
+//         <div className="flex justify-between items-center p-4 border-b border-gray-200">
+//           <div className="flex items-center cursor-pointer" onClick={() => { navigate("/"); setShowMenu(false); }}>
+//             <img src='https://static.vecteezy.com/system/resources/previews/011/797/265/non_2x/head-with-brain-illustration-design-human-head-and-brain-icon-mind-concept-free-vector.jpg' alt="Resilient Logo" className="h-8 mr-2" />
+//             <span className="text-xl font-bold text-blue-800">Resilient psychiatry and Otho Clinic</span>
+//           </div>
+//           <button className="text-gray-500" onClick={() => setShowMenu(false)}><FaTimes size={24} /></button>
+//         </div>
+
+//         <div className="p-4">
+//           <ul className="flex flex-col space-y-4"><NavItems mobile /></ul>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// };
+
+// export default Navbar;
+
+
+
+
+
 import React, { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
-  FaSignOutAlt, FaChevronDown, FaBars, FaTimes, FaPhoneAlt, FaMapMarkerAlt,
-  FaInfoCircle, FaHandsHelping, FaEnvelope, FaCalendarAlt, FaHome
+  FaBars, FaTimes, FaPhoneAlt, FaMapMarkerAlt,
+  FaInfoCircle, FaHandsHelping, FaEnvelope, FaHome
 } from 'react-icons/fa';
 import { GiMedicines } from 'react-icons/gi';
 import { AppContext } from '../context/AppContext.jsx';
-import { assets } from "../assets/assets.js";
 
 const navLinks = [
   { path: "/", label: "Home", icon: FaHome },
@@ -249,8 +361,7 @@ const navLinks = [
 const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const { token, setToken, userData } = useContext(AppContext);
+  const { token, setToken } = useContext(AppContext);
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -258,6 +369,7 @@ const Navbar = () => {
     navigate('/');
   };
 
+  // Nav Item Component
   const NavItems = ({ mobile = false }) => (
     <>
       {navLinks.map(({ path, label, icon: Icon }) => (
@@ -277,28 +389,56 @@ const Navbar = () => {
           {!mobile && <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300" />}
         </NavLink>
       ))}
+      {token && (
+        <button
+          onClick={logout}
+          className={`${mobile
+            ? 'py-2 px-4 rounded-lg flex items-center gap-3 text-red-600 hover:bg-red-50'
+            : 'py-1 flex items-center gap-1.5 font-medium text-red-600 hover:text-red-700'
+            }`}
+        >
+          Logout
+        </button>
+      )}
     </>
   );
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      {/* Top Info */}
+      {/* Top Info Bar */}
       <div className="hidden md:block bg-gradient-to-r from-blue-800 to-green-400 text-white text-sm py-2 px-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex space-x-6">
-            <div className="flex items-center space-x-1"><FaPhoneAlt size={12} /><span>Emergency: (123) 456-7890</span></div>
-            <div className="flex items-center space-x-1"><FaMapMarkerAlt size={12} /><span>123 Healing St, Medical City</span></div>
+            <div className="flex items-center space-x-1">
+              <FaPhoneAlt size={12} />
+              <span>Emergency: (123) 456-7890</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <FaMapMarkerAlt size={12} />
+              <span>123 Healing St, Medical City</span>
+            </div>
           </div>
-          <div className="flex items-center space-x-1"><GiMedicines size={14} /><span>24/7 Pharmacy Services</span></div>
+          <div className="flex items-center space-x-1">
+            <GiMedicines size={14} />
+            <span>24/7 Pharmacy Services</span>
+          </div>
         </div>
       </div>
 
-      {/* Main Nav */}
+      {/* Main Navbar */}
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
-          <span className="text-2xl font-bold cursor-pointer text-blue-800">
-            <a href="/">Resilient Neuropsychiatric And Orthopedic Clinic</a>
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/011/797/265/non_2x/head-with-brain-illustration-design-human-head-and-brain-icon-mind-concept-free-vector.jpg"
+            alt="Resilient Logo"
+            className="h-10 mr-2 rounded-full"
+          />
+          <span className="text-xl font-bold text-blue-800">
+            Resilient Neuropsychiatric & Ortho Clinic
           </span>
         </div>
 
@@ -307,7 +447,7 @@ const Navbar = () => {
           <NavItems />
         </nav>
 
-        {/* Hamburger (Mobile only) */}
+        {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center ml-auto">
           <button className="text-blue-900" onClick={() => setShowMenu(true)}>
             <FaBars size={24} />
@@ -316,20 +456,44 @@ const Navbar = () => {
       </div>
 
       {/* Backdrop */}
-      {showMenu && <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" onClick={() => setShowMenu(false)} />}
+      {showMenu && (
+        <div
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+          onClick={() => setShowMenu(false)}
+        />
+      )}
 
       {/* Mobile Drawer */}
-      <div className={`md:hidden fixed top-0 left-0 w-72 h-full z-50 bg-white transform transition-transform duration-300 shadow-2xl ${showMenu ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div
+        className={`md:hidden fixed top-0 left-0 w-72 h-full z-50 bg-white transform transition-transform duration-300 shadow-2xl ${showMenu ? 'translate-x-0' : '-translate-x-full'
+          }`}
+      >
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
-          <div className="flex items-center cursor-pointer" onClick={() => { navigate("/"); setShowMenu(false); }}>
-            {/* <img src={assets.logo} alt="NauraCare Logo" className="h-8 mr-2" /> */}
-            <span className="text-xl font-bold text-blue-800">Resilient psychiatry and Otho Clinic</span>
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={() => {
+              navigate("/");
+              setShowMenu(false);
+            }}
+          >
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/011/797/265/non_2x/head-with-brain-illustration-design-human-head-and-brain-icon-mind-concept-free-vector.jpg"
+              alt="Resilient Logo"
+              className="h-8 mr-2 rounded-full"
+            />
+            <span className="text-lg font-bold text-blue-800">
+              Resilient Clinic
+            </span>
           </div>
-          <button className="text-gray-500" onClick={() => setShowMenu(false)}><FaTimes size={24} /></button>
+          <button className="text-gray-500" onClick={() => setShowMenu(false)}>
+            <FaTimes size={24} />
+          </button>
         </div>
 
         <div className="p-4">
-          <ul className="flex flex-col space-y-4"><NavItems mobile /></ul>
+          <ul className="flex flex-col space-y-4">
+            <NavItems mobile />
+          </ul>
         </div>
       </div>
     </header>

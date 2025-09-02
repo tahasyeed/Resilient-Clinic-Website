@@ -42,9 +42,9 @@ const Banner = () => {
           </motion.p>
           <motion.div variants={item} className="flex flex-col sm:flex-row gap-3">
             <motion.button whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(255,255,255,0.1)" }} whileTap={{ scale: 0.98 }}
-              onClick={() => { navigate("/login"); window.scrollTo(0, 0); }}
-              className="bg-white hover:bg-blue-50 text-blue-800 font-semibold px-7 py-3 rounded-full shadow-lg flex items-center gap-2.5">
-              Get Started
+              onClick={() => { navigate("/contact"); window.scrollTo(0, 0); }}
+              className="bg-white  hover:bg-blue-50 text-blue-800 font-semibold px-7 py-3 rounded-full shadow-lg flex items-center gap-2.5">
+              Contact Us
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
               </svg>

@@ -131,7 +131,7 @@ const SpecialityMenu = () => {
 
   return (
     <section
-      className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-b from-blue-50 to-white overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-14 bg-gradient-to-b from-blue-50 to-white overflow-hidden"
       id="speciality"
     >
       {/* Blurred Decorations - Always Centered */}
