@@ -34,11 +34,11 @@
 }
 
 
-.centered{
+/* .centered{
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .hw{
   height: 10rem;
