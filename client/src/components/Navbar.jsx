@@ -322,8 +322,8 @@ const Navbar = () => {
       <div className={`md:hidden fixed top-0 left-0 w-72 h-full z-50 bg-white transform transition-transform duration-300 shadow-2xl ${showMenu ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <div className="flex items-center cursor-pointer" onClick={() => { navigate("/"); setShowMenu(false); }}>
-            <img src={assets.logo} alt="NauraCare Logo" className="h-8 mr-2" />
-            <span className="text-xl font-bold text-blue-800">NauraCare</span>
+            {/* <img src={assets.logo} alt="NauraCare Logo" className="h-8 mr-2" /> */}
+            <span className="text-xl font-bold text-blue-800">Resilient</span>
           </div>
           <button className="text-gray-500" onClick={() => setShowMenu(false)}><FaTimes size={24} /></button>
         </div>
