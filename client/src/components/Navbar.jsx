@@ -323,7 +323,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <div className="flex items-center cursor-pointer" onClick={() => { navigate("/"); setShowMenu(false); }}>
             {/* <img src={assets.logo} alt="NauraCare Logo" className="h-8 mr-2" /> */}
-            <span className="text-xl font-bold text-blue-800">Resilient</span>
+            <span className="text-xl font-bold text-blue-800">Resilient psychiatry and Otho Clinic</span>
           </div>
           <button className="text-gray-500" onClick={() => setShowMenu(false)}><FaTimes size={24} /></button>
         </div>
