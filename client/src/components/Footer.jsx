@@ -80,7 +80,7 @@ const Footer = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <p className="text-gray-700 font-medium">+1-212-456-7890</p>
+                                    <p className="text-gray-700 font-medium">+X-XXX-XXX-XXXX</p>
                                     <p className="text-sm text-gray-500 mt-1">Mon-Fri, 9am-6pm</p>
                                 </div>
                             </li>
@@ -103,8 +103,8 @@ const Footer = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <p className="text-gray-700 font-medium">123 Medical Drive</p>
-                                    <p className="text-sm text-gray-500 mt-1">New York, NY 10001</p>
+                                    <p className="text-gray-700 font-medium">Ikhrajpora Jawahar Nagar</p>
+                                    <p className="text-sm text-gray-500 mt-1">Srinagar, J&K 190008</p>
                                 </div>
                             </li>
                         </ul>
