@@ -92,6 +92,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Testimonials from './components/Testnomial';
 import HealthcareCarousel from './components/Pageslider';
+import BookAppointmentButton from './components/BookAppointmentButton';
+import AppointmentPage from './pages/AppointmentPage';
 
 const App = () => {
   const location = useLocation();
@@ -127,6 +129,8 @@ const App = () => {
             <Route path='/doctors/:speciality' element={<Doctors />} />
             <Route path='/services' element={<Services />} />
             <Route path='/verify' element={<Verify />} />
+            <Route path="/" element={<BookAppointmentButton />} />
+        <Route path="/appointment" element={<AppointmentPage />} />
           </Routes>
         </main>
 
