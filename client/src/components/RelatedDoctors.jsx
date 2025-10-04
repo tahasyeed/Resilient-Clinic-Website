@@ -3,6 +3,7 @@ import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+
 const RelatedDoctors = ({ docId, speciality }) => {
     const { doctors } = useContext(AppContext);
     const [relDoc, setRelDoc] = useState([]);
@@ -101,6 +102,8 @@ const RelatedDoctors = ({ docId, speciality }) => {
                                     <p className="text-gray-600 text-sm mb-3">
                                         {doctor.degree || 'BDS, MDS'} - {doctor.experience || '16'} Years Experience
                                     </p>
+                                  
+                               
 
                                     {/* CTA on Hover */}
                                     <div className="absolute bottom-0 left-0 right-0 h-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:h-1 group-hover:opacity-100 transition-all duration-300"></div>
@@ -141,3 +144,8 @@ const RelatedDoctors = ({ docId, speciality }) => {
 };
 
 export default RelatedDoctors;
+
+
+
+
+

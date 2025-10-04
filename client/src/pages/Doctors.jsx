@@ -1,6 +1,9 @@
+
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
+
+
 
 const Doctors = () => {
   const { speciality } = useParams();
@@ -107,12 +110,28 @@ const Doctors = () => {
           <div className="flex-1">
             {filteredDocs.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                 {filteredDocs.map(doc => (
                   <div
                     key={doc._id}
                     className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer hover:-translate-y-1"
                     onClick={() => navigate(`/appointment/${doc._id}`)}
                   >
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
                     {/* Image */}
                     <div className="relative h-64 bg-blue-50 flex items-center justify-center p-4">
                       <img
@@ -134,7 +153,10 @@ const Doctors = () => {
                       <p className="text-blue-600 font-semibold">{doc.speciality}</p>
                       <p className="text-gray-600 text-sm mb-4">
                         {doc.degree || 'BDS, MDS'} - {doc.experience || 1} Year{doc.experience > 1 ? 's' : ''} Experience
+                        
+                     
                       </p>
+
 
                       {/* Hover CTA */}
                       <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -185,3 +207,9 @@ const Doctors = () => {
 };
 
 export default Doctors;
+
+
+
+
+
+

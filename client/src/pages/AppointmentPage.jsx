@@ -1,109 +1,84 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 
 export default function AppointmentPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    time: "",
-    message: "",
-  });
+  const form = useRef();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .send(
-        "service_sy8qu56",   // replace with EmailJS Service ID
-        "template_ppbq6k4",  // replace with EmailJS Template ID
-        formData,
-        "JqKWp8deRaZXt3EW-"    // replace with EmailJS Public Key
+      .sendForm(
+        "service_sy8qu56",   // replace with your EmailJS service ID
+        "template_u66crje",  // replace with your EmailJS template ID
+        form.current,
+        "JqKWp8deRaZXt3EW-"    // replace with your EmailJS public key
       )
       .then(
         () => {
-          alert("Appointment request sent successfully!");
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            date: "",
-            time: "",
-            message: "",
-          });
+          alert("Appointment request sent successfully ✅");
+          form.current.reset();
         },
-        () => {
-          alert("Failed to send request. Please try again.");
+        (error) => {
+          alert("Failed to send appointment ❌, please try again.");
+          console.error(error.text);
         }
       );
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="flex items-center justify-center h-screen bg-gray-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-blue-600">
           Book Appointment
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+
+        <form ref={form} onSubmit={sendEmail} className="space-y-3">
           <input
             type="text"
-            name="name"
+            name="user_name"
             placeholder="Full Name"
-            value={formData.name}
-            onChange={handleChange}
+            className="w-full border p-2 rounded"
             required
-            className="w-full p-3 border rounded"
           />
           <input
             type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
+            name="user_email"
+            placeholder="Email"
+            className="w-full border p-2 rounded"
             required
-            className="w-full p-3 border rounded"
+          />
+          <input
+            type="tel"
+            name="user_phone"
+            placeholder="Phone Number"
+            className="w-full border p-2 rounded"
+            required
           />
           <input
             type="text"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
+            name="user_address"
+            placeholder="Address"
+            className="w-full border p-2 rounded"
             required
-            className="w-full p-3 border rounded"
           />
           <input
             type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
+            name="appointment_date"
+            placeholder="Appointment Date"
+            className="w-full border p-2 rounded"
             required
-            className="w-full p-3 border rounded"
-          />
-          <input
-            type="time"
-            name="time"
-            value={formData.time}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border rounded"
           />
           <textarea
             name="message"
-            placeholder="Message (optional)"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-3 border rounded"
-          />
+            placeholder="Your Concern"
+            className="w-full border p-2 rounded"
+            required
+          ></textarea>
 
           <button
             type="submit"
-            className="w-full px-4 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded"
           >
             Submit Appointment
           </button>

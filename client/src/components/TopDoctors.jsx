@@ -18,7 +18,7 @@
 //       image: "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
 //       degree: "BDS, MDS",
 //       experience: 8,
-//       available: false,
+//       available: true,
 //     },
 //     {
 //       _id: 3,
@@ -111,53 +111,62 @@
 
 
 
+
+
+
+
+
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import shaziaImg from '../assets/shazia.jpg';
+import irshadImg from '../assets/irshad.png';
+
+
+
 
 const TopDoctors = () => {
-  // Doctors data
+  const navigate = useNavigate();
+
+  // Sample doctors data
   const doctors = [
     {
       _id: 1,
-      name: "Dr. Ayesha Khan",
-      image: "https://res.cloudinary.com/di305jpff/image/upload/v1752665183/cwb3s4e5am9dy5tqxqoo.png",
-      degree: "MBBS, MD",
-      experience: 12,
+      name: "Dr. Shazia Kouser",
+      image: shaziaImg,
+      degree: "MBBS, MD-Psychaitry",
+      experience: 22,
       available: true,
     },
     {
       _id: 2,
-      name: "Dr. Rohit Sharma",
-      image: "https://res.cloudinary.com/di305jpff/image/upload/v1752664831/odmr8ayhwrq2adsczsrt.png",
-      degree: "BDS, MDS",
-      experience: 8,
-      available: false,
+      name: "Dr. Irshad Tabasum",
+      image: irshadImg,
+      degree: "MBBS, MS-Orthopaedics",
+      experience: 25,
+      available: true,
     },
     {
       _id: 3,
-      name: "Dr. Priya Mehta",
-      image: "https://res.cloudinary.com/di305jpff/image/upload/v1752665004/qxtqbvqtodpwupndqtv0.png",
-      degree: "MBBS, MS",
-      experience: 15,
+      name: "Shabir Ahmad",
+      image:"",
+      degree: "Pharmacy",
+      experience: 5,
       available: true,
     },
     {
       _id: 4,
-      name: "Dr. Arjun Patel",
-      image: "https://res.cloudinary.com/di305jpff/image/upload/v1752665383/mbffq7x5ihxgrthxka6u.png",
-      degree: "MBBS, DM",
-      experience: 10,
+      name: "Taha Syeed",
+      image: "https://peertaha.netlify.app/src/webp/reduce.jpg",
+      degree: "Diploma, B-Tech-Computer Engineering",
+      experience: 2,
       available: true,
     },
   ];
 
-  // Animations
   const containerVariants = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
   const itemVariants = {
@@ -166,19 +175,21 @@ const TopDoctors = () => {
   };
 
   return (
-    <section className="py-5 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-16 bg-gradient-to-b from-white to-blue-50">
+      <div className="max-w-7xl mx-auto px-6">
+      
         
-        {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 relative inline-block">
-            Our <span className="text-blue-600">Elite Doctors</span>
-            <span className="block w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></span>
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg">
-            Meet our highly qualified and experienced specialists
-          </p>
-        </div>
+      <h1 className="text-4xl font-bold text-center mb-6">
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
+    Our Elite Team
+  </span>
+        </h1>
+        
+        <p className="text-center text-gray-600 mt-2 mb-6">
+  Connect with top medical specialists for expert care anytime, anywhere.
+</p>
+
+
 
         {/* Doctors Grid */}
         <motion.div
@@ -188,7 +199,7 @@ const TopDoctors = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {doctors.map((doctor) => (
+          {doctors.map((doctor, index) => (
             <motion.div
               key={doctor._id}
               variants={itemVariants}
@@ -217,11 +228,24 @@ const TopDoctors = () => {
                 <p className="text-blue-600 font-medium text-sm mt-1">
                   {doctor.experience} Years Experience
                 </p>
+
+                {/* Button only for first 2 cards */}
+                {index < 2 && (
+                  <button
+                  onClick={() => {
+                    navigate(`/appointment/`);
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll to top
+                  }}
+                    
+                    className="mt-4 w-full bg-gradient-to-r from-blue-600 to-teal-500 text-white py-2 rounded-lg hover:opacity-90 transition"
+                  >
+                    Book Appointment
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );

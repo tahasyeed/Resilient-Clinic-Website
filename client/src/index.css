@@ -44,3 +44,12 @@
   height: 10rem;
   width: 11rem;
 }
+
+.appointmentbuttonadjust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 10rem;
+  padding-left: 1.5rem;
+}
