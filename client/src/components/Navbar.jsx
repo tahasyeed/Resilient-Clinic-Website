@@ -578,7 +578,7 @@ const Navbar = () => {
           <div className="flex space-x-6">
             <div className="flex items-center space-x-1">
               <FaPhoneAlt size={12} />
-              <span>Emergency: (XXX) XXX-XXXX</span>
+              <span>Emergency: +91-910-359-4443</span>
             </div>
             <div className="flex items-center space-x-1">
               <FaMapMarkerAlt size={12} />

@@ -80,8 +80,8 @@ const Footer = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <p className="text-gray-700 font-medium">+X-XXX-XXX-XXXX</p>
-                                    <p className="text-sm text-gray-500 mt-1">Mon-Fri, 9am-6pm</p>
+                                    <p className="text-gray-700 font-medium">+91-910-359-4443</p>
+                                    <p className="text-sm text-gray-500 mt-1">Mon-Sat, 9am-8pm</p>
                                 </div>
                             </li>
                             <li className="flex items-start">
@@ -91,7 +91,7 @@ const Footer = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <p className="text-gray-700 font-medium">hello@resilient.com</p>
+                                    <p className="text-gray-700 font-medium">drshaziakouser4@gmail.com</p>
                                     <p className="text-sm text-gray-500 mt-1">We reply within 24 hours</p>
                                 </div>
                             </li>

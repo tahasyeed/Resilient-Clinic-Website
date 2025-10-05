@@ -135,10 +135,10 @@ const App = () => {
         </main>
 
         {/* Carousel visible only on Home page */}
-        {location.pathname === '/' && <HealthcareCarousel />}
+        {/* {location.pathname === '/' && <HealthcareCarousel />} */}
 
         {/* Testimonials & Footer */}
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Footer />
       </div>
     </>

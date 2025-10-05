@@ -60,10 +60,10 @@ export const assets = {
 }
 
 export const specialityData = [
-    {
-        speciality: 'General physician',
-        image: General_physician
-    },
+    // {
+    //     speciality: 'General physician',
+    //     image: General_physician
+    // },
     // {
     //     speciality: 'Gynecologist',
     //     image: Gynecologist

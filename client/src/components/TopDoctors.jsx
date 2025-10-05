@@ -121,6 +121,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import shaziaImg from '../assets/shazia.jpg';
 import irshadImg from '../assets/irshad.png';
+import tahaImg from '../assets/taha.png'
+import shabirImg from '../assets/shabir.png'
 
 
 
@@ -149,7 +151,7 @@ const TopDoctors = () => {
     {
       _id: 3,
       name: "Shabir Ahmad",
-      image:"",
+      image:shabirImg,
       degree: "Pharmacy",
       experience: 5,
       available: true,
@@ -157,7 +159,7 @@ const TopDoctors = () => {
     {
       _id: 4,
       name: "Taha Syeed",
-      image: "https://peertaha.netlify.app/src/webp/reduce.jpg",
+      image: tahaImg,
       degree: "Diploma, B-Tech-Computer Engineering",
       experience: 2,
       available: true,
